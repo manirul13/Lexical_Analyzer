@@ -1,17 +1,19 @@
 #include <stdio.h>
-
+void swap(int *a, int *b){
+    *a = *a ^ *b;
+    *b = *a ^ *b;
+    *a = *a ^ *b;
+}
 int main()
 {
-    int num;
-    printf("Enter a number: ");
-    scanf("%d", &num);
-    if (num % 2 == 0)
-    {
-        printf("%d is even\n", num);
-    }
-    else
-    {
-        printf("%d is odd\n", num);
-    }
+    int a = 10, b = 20;
+
+    scanf("%d %d", &a, &b);
+    printf("Beofre swapping: a=%d, b=%d\n", a, b);
+
+    swap(&a, &b);
+
+    printf("After swapping: a=%d, b=%d\n", a, b);
+
     return 0;
 }
